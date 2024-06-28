@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog</title>
+  
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root{
+  --primary-text-color: #183B56;
+  --secondry-text-color: #577592;
+  --accent-color: #de3445;
+  --accent-color-dark: #285886;
+}
+
+/*--- util css ---*/
+
+.container{
+  max-width: 90%;
+  margin: auto;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.primary-btn{
+  background-color: var(--accent-color-dark);
+  color: #fff;
+  padding: 0.8vw 1.7vw;
+  border-radius: 2px;
+}
+.primary-btn:hover{
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/*---- navbar----*/
+
+.container{
+  justify-content: space-between;
+}
+
+nav{
+  z-index: 999;
+  max-width: 100%;
+  margin: auto;
+  padding: 1.5vw 0;
+  background: ghostwhite;
+  height: 6.5vw;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo{
+  font-size: 2.3vw;
+  font-weight: 700;
+  color: var(--secondry-text-color);
+}
+
+ul {
+  gap: 2vw;
+}
+
+ul li{
+  list-style: none;
+}
+
+ul li a{
+  font-size: 1.27vw;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  transition: 0.2s ease-in-out;
+}
+ul li a:hover{
+  color: var(--accent-color);
+}
+
+.burger{
+  font-size: 2vw;
+  margin-top: 0.5vw;
+  padding: 3px 7px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 650px) {
+  
+  nav{
+    width: 100%;
+    height: 60px;
+    position: sticky;
+    top: 0;
+  }
+  
+  .logo{
+    font-size: 4.4vw;
+    margin-top: 5px;
+  }
+  
+  .nav-list{
+    position: absolute;
+    flex-direction: column;
+    top: 60px;
+    background: ghostwhite;
+    left: -100%;
+    width: 70%;
+    height: calc(100vh - 60px);
+    padding-block: 15px;
+    transition:left 0.2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 0px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  .active{
+    left: 0;
+    transition:left 0.2s ease-out;
+  }
+
+  .links ul li{
+  }
+  
+  .links ul li a{
+    text-align: center;
+    display: inline-block;
+    font-size: 3vw;
+    width: 100%;
+    margin-block: 15px;
+    padding: 15px 50px;
+  }
+  
+  .nav-links{
+    padding: 15px 100px;
+  }
+  
+  .burger{
+    display: block;
+    font-size: 20px;
+  }
+  
+  .primary-btn{
+    padding: 3vw 6vw;
+  }
+}
+
+/* Card Styles */
+
+.card-container {
+  display: flex;
+  width: 100%;
+  margin: 20px auto;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 250px;
+}
+
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tag-teal {
+  background-color: #47bcd4;
+}
+
+.tag-purple {
+  background-color: #5e76bf;
+}
+
+.tag-pink {
+  background-color: #cd5b9f;
+}
+.card-body h4{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  padding: 5px 0 10px 0;
+}
+.card-body p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+
+.user {
+  display: flex;
+  margin-top: auto;
+}
+
+.user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.user-info h5 {
+  margin: 0;
+}
+
+.user-info small {
+  color: #545d7a;
+}
+
+.card-section{
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 80px;
+}
+
+@media (max-width: 650px) {
+  .card-container{
+    flex-direction: column;
+  }
+  .card{
+    width: 90%;
+    margin: 15px auto;
+  }
+}
+
+    
+    
+  </style>
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+<nav>
+  <div class="container flex">
+    <a class="logo" href="#">Qui<span>lee</span></a>
+    <div class="links">
+      <ul class="flex nav-list">
+        <li><a href="#" class="nav-link">Tools</a></li>
+        <li><a href="#" class="nav-link">Store</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+        <li><a href="/login.html" class="primary-btn">Login</a></li>
+      </ul>
+    </div>
+    <div class="burger" onclick="active()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<div class="card-container">
+  {% for post in posts %}
+  <div class="card">
+    <div class="card-header">
+      <img src="{{ post.feature_image.url }}" alt="{{ post.title }}" />
+    </div>
+    <div class="card-body">
+      <span class="tag tag-teal">{{ post.category.name }}</span>
+      <h4><a href="{% url 'post_details' post.slug %}">{{ post.title }}</a></h4>
+      <p>{{ post.description }}</p>
+      <div class="user">
+         <!-- Assuming you have a profile image for the user -->
+        <div class="user-info">
+          <h5>{{ post.author.username }}</h5>
+          <small>{{ post.created_at }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script src="/main.js"></script>
+</body>
+</html>
